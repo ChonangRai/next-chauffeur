@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Helvetica, sans-serif;
+}
+
+
+
+/* Infinite Moving Background (Car Background Animation) */
+@keyframes moveBackground {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animated-bg {
+  background: url('/images/car.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the entire container */
+  animation: moveBackground 10s linear infinite; /* Infinite movement of the background */
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensure full viewport height */
+  overflow: hidden;
+  background-attachment: fixed; /* This ensures the background moves independently */
+}
+
+/* Text Fade-In + Zoom */
+@keyframes fadeInZoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.heading {
+  animation: fadeInZoom 1.5s ease-in-out;
+}
+
+.fade-in-text {
+  opacity: 0;
+  animation: fadeInZoom 2s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Smooth Button Hover */
+button:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
